@@ -1,0 +1,39 @@
+<h2>Exercise statement</h2>
+Prove Proposition 2.2.14.
+
+<strong>Proposition 2.2.14</strong> (Strong principle of induction)<strong>.</strong> Let $latex m_0$ be a natural number, and let $latex P(m)$ be a property pertaining to an arbitrary natural number $latex m$. Suppose that for each $latex m \geq m_0$, we have the following implication: if $latex P(m')$ is true for all natural numbers $latex m_0 \leq m' &lt; m$, then $latex P(m)$ is also true. (In particular, this means that $latex P(m_0)$ is true, since in this case the hypothesis is vacuous.) Then we can conclude that $latex P(m)$ is true for all natural numbers $latex m \geq m_0$.
+<h2>Hints</h2>
+<ol>
+ 	<li>Define $latex Q(n)$ to be the property that $latex P(m)$ is true for all $latex m_0 \leq m &lt; n$; note that $latex Q(n)$ is vacuously true when $latex n &lt; m_0$.</li>
+</ol>
+<h2>How to think about the exercise</h2>
+I want to say more, but I'm feeling tired after writing up the proof, so here are some quick comments, mostly intended as notes to myself for when I return to this exercise later:
+<ul>
+ 	<li>For this kind of exercise, I find my verbal ability to start to fail me, and I just can't keep in my mind all the nested "if ... then ..." statements and so on. The good news is that you can sort of solve these exercises entirely symbolically and automatically, while barely understanding anything.</li>
+ 	<li>I should also say something about why this is called <em>strong</em> induction. (basically the hypothesis contains more assumptions, which makes the statement stronger)</li>
+ 	<li>I should give an example of a problem where using strong induction makes the proof go through but where using regular induction makes it impossible.</li>
+ 	<li>In the proof below I showed at one point that $latex n \geq m_0$. This is like splitting by the cases $latex n\geq m_0$ and $latex n &lt; m_0$ (where the latter ends in contradiction so we don't need to worry about it). There is an alternative way to split by cases, which is $latex n{{+}\!{+}} \geq m_0$ and $latex n{{+}\!{+}} &lt; m_0$. In the latter case, $latex Q(n{{+}\!{+}})$ is automatically true as Tao writes in the hint. In the former case, we have to further break into $latex n\geq m_0$ (use $latex Q(n) \to P(n)$) or $latex n{{+}\!{+}} = m_0$ (so we want to show $latex Q(m_0)$, but this is vacuously true).</li>
+ 	<li>There are a lot of questions on math SE asking about this exercise. It would be nice if I can go through them in detail at some point to make sure that this post covers all of the common points of confusion.</li>
+</ul>
+<h2>Model solution</h2>
+Let $latex Q(n)$ to be the property that $latex P(m)$ is true for all $latex m_0 \leq m &lt; n$. Given this definition of $latex Q$, we can restate the hypothesis for $latex P$ as follows: for each $latex m \geq m_0$, if $latex Q(m)$ is true then $latex P(m)$ is also true. To go a little more slowly, we know from the statement of Proposition 2.2.14 that $latex P$ has the following property:
+<ul>
+ 	<li>For each $latex m \geq m_0$: if $latex P(m')$ is true for all $latex m_0 \leq m' &lt; m$ then $latex P(m)$ is also true.</li>
+</ul>
+We can use $latex Q$ to rewrite the above bullet point as follows:
+<ul>
+ 	<li>For each $latex m\geq m_0$: if $latex Q(m)$ is true then $latex P(m)$ is also true.</li>
+</ul>
+We will prove by induction that $latex Q(n)$ is true for all natural numbers $latex n$.
+
+We first want to show $latex Q(0)$, which says that $latex P(m)$ is true for all $latex m_0 \leq m &lt; 0$. This is vacuously true since there is no natural number strictly less than zero: $latex m &lt;0$ means $latex m \leq 0$ and $latex m\ne 0$. So we have some natural number $latex a$ such that $latex 0 = m+a$, but this means $latex m=0$ by Corollary 2.2.9, which contradicts the fact that $latex m\ne 0$. So $latex P(m)$ is true for all such numbers, because none exist.
+
+Now suppose inductively that we have shown $latex Q(n)$ is true. We want to show that $latex Q(n{{+}\!{+}})$ is true, i.e. we want to show that $latex P(m)$ is true for all $latex m_0 \leq m &lt; n{{+}\!{+}}$. So let $latex m$ be a natural number and suppose $latex m_0 \leq m &lt; n{{+}\!{+}}$. Our goal is to show that $latex P(m)$ is true.
+
+Since $latex m_0 \leq m &lt; n{{+}\!{+}}$, we claim that either $latex m_0 \leq m &lt; n$ or $latex m = n$. This is because $latex m &lt; n{{+}\!{+}}$ implies $latex m{{+}\!{+}} \leq n{{+}\!{+}}$ by Proposition 2.2.12(e) which implies $latex m \leq n$ by Proposition 2.2.12(d). We know $latex m = n$ or $latex m \ne n$; in the latter case we thus have $latex m &lt; n$, so $latex m_0 \leq m &lt; n$. Thus we see that either $latex m_0 \leq m &lt; n$ or $latex m = n$.
+
+Since $latex Q(n)$ is true, we know that $latex P(m)$ is true for all $latex m_0 \leq m &lt; n$. Thus in the case where $latex m_0 \leq m &lt; n$, we already know that $latex P(m)$ is true.
+
+To complete the proof we must show that $latex P(m)$ is true in the case $latex m=n$, i.e. we must show that $latex P(n)$ is true. Since $latex m_0 \leq m &lt; n{{+}\!{+}}$, by transitivity of order $latex m_0 &lt; n{{+}\!{+}}$, so $latex m_0{{+}\!{+}} \leq n{{+}\!{+}}$ which means $latex m_0 \leq n$. Since $latex m_0 \leq n$ we can use the hypothesis for $latex P$, which says that if $latex Q(n)$ is true then $latex P(n)$ is also true. Since $latex Q(n)$ is true by inductive hypothesis, we see that $latex P(n)$ is true as desired.
+
+This completes the induction, and we have that $latex Q(n)$ is true for all natural numbers $latex n$. Our original goal was to show that $latex P(m)$ is true for all natural numbers $latex m \geq m_0$. So let $latex m \geq m_0$. Then we know that $latex Q(m{{+}\!{+}})$ is true. Since $latex m_0 \leq m &lt; m{{+}\!{+}}$, we see that $latex P(m)$ is true as required.
