@@ -1,0 +1,29 @@
+<h2>Exercise statement</h2>
+Prove Lemma 2.3.3.
+
+<strong>Lemma 2.3.3</strong> (Positive natural numbers have no zero divisors)<strong>.</strong> Let $latex n,m$ be natural numbers. Then $latex n\times m = 0$ if and only if at least one of $latex n,m$ is equal to zero. In particular, if $latex n$ and $latex m$ are both positive, then $latex nm$ is also positive.
+<h2>Hints</h2>
+<ol>
+ 	<li>Prove the second statement first.</li>
+ 	<li>You can use induction, but you don't <em>need</em> to use induction.</li>
+</ol>
+<h2>How to think about the exercise</h2>
+We want to show
+<p style="text-align: center;">$latex n\times m = 0 \iff (n=0 \lor m=0)$</p>
+This is equivalent to showing two things:
+<p style="text-align: center;">$latex n\times m = 0 \implies (n=0 \lor m=0)$</p>
+and
+<p style="text-align: center;">$latex (n=0 \lor m=0) \implies n\times m = 0$</p>
+The first of these is equivalent to
+<p style="text-align: center;">$latex (n\ne0 \land m\ne0) \implies n\times m \ne 0$</p>
+since it is the contrapositive. But "not equal to zero" is the same thing as "positive", so this last implication means exactly the same thing as what Tao wrote in the statement of the lemma: "In particular, if $latex n$ and $latex m$ are both positive, then $latex nm$ is also positive."
+
+In the proof below, we will first show
+<p style="text-align: center;">$latex (n\ne0 \land m\ne0) \implies n\times m \ne 0\ \ \ \ \ (*)$</p>
+and then we will show
+<p style="text-align: center;">$latex (n=0 \lor m=0) \implies n\times m = 0$</p>
+And actually, in the proof below, the two parts are completely independent, i.e. it doesn't matter what order you do them in. So then why does Tao's hint say to prove the second one (i.e. the starred implication) first? I think Tao's thinking was something like this: at this stage, it might be difficult to manipulate implications like I did above, and to realize that proving the contrapositive is equivalent to proving the original implication. So instead, if you prove the contrapositive version (as stated by Tao), then you can very easily prove the original implication using a proof by contradiction. In other words, you could say: "Suppose $latex n\times m = 0$. Now suppose for a contradiction that neither $latex n$ nor $latex m$ is zero. Then we see that $latex nm$ is positive, a contradiction." I think that is what Tao intended.
+<h2>Model solution</h2>
+Suppose $latex n$ and $latex m$ are positive. By Lemma 2.2.10, there exist natural numbers $latex a,b$ such that $latex a{{+}\!{+}} = n$ and $latex b{{+}\!{+}} = m$. Thus $latex n\times m = (a{{+}\!{+}})\times (b{{+}\!{+}}) = ab + a + b + 1$ which is positive. (For suppose $latex (ab + a + b) + 1$ is not positive. Then by Corollary 2.2.9 we see that $latex 1=0$, a contradiction.)
+
+Now suppose $latex n=0$ or $latex m=0$. If $latex n=0$, then $latex nm = 0\times m=0$ by definition of multiplication. If $latex m=0$, then $latex nm=mn=0\times n = 0$ by commutativity of multiplication and the definition of multiplication.
