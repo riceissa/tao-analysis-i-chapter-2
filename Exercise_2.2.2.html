@@ -1,0 +1,16 @@
+<h2>Exercise statement</h2>
+Prove Lemma 2.2.10.
+
+<strong>Lemma 2.2.10.</strong> Let $latex a$ be a positive number. Then there exists exactly one natural number $latex b$ such that $latex b{{+}\!{+}} = a$.
+<h2>Hints</h2>
+<ol>
+ 	<li>Use induction.</li>
+</ol>
+<h2>How to think about the exercise</h2>
+This exercise asks us to show that it makes sense to talk about the predecessor of a positive number. For instance, the predecessor of $latex 3$ is $latex 2$. Why is there a hypothesis that $latex a$ must be a positive number? Because by axiom 2.3 the number $latex 0$ does not have a predecessor (within the set of natural numbers).
+
+This exercise is <em>almost</em> a standard induction exercise, but not quite. The one subtlety is that <em>the inductive hypothesis is never used</em>. This might seem suspicious to you, but it's actually harmless.
+<h2>Model solution</h2>
+Let $latex P(a)$ be the statement "If $latex a$ is positive, then there is a unique natural number $latex b$ such that $latex b{{+}\!{+}} = a$." We shall induct on $latex a$. The base case is vacuously true, since $latex 0$ is not a positive number (definition 2.2.7).
+
+Now suppose inductively that $latex P(a)$ is true. We must show that $latex P(a{{+}\!{+}})$ is true. To show that $latex P(a{{+}\!{+}})$ is true, it suffices to show that there is a unique number $latex b$ such that $latex b{{+}\!{+}} = a{{+}\!{+}}$ (this is because given statements $latex p,q$, if $latex q$ is true, then $latex p \implies q$ is also true no matter what $latex p$ says). To do this, we must show two things: (1) there is a natural number $latex b$ such that $latex b{{+}\!{+}} = a{{+}\!{+}}$; (2) if $latex c$ is a natural number such that $latex c{{+}\!{+}} = a{{+}\!{+}}$, then $latex c=b$. To show (1), let $latex b:=a$. Then indeed we have $latex b{{+}\!{+}} = a{{+}\!{+}}$. To show (2), let $latex c$ be a natural number such that $latex c{{+}\!{+}} = a{{+}\!{+}}$. Then by axiom 2.4, we see that $latex c=a$. But we also know $latex b=a$, so $latex c=b$ as required. This closes the induction.
