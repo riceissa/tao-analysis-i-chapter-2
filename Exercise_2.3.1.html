@@ -1,0 +1,25 @@
+<h2>Exercise statement</h2>
+Prove Lemma 2.3.2.
+
+<strong>Lemma 2.3.2</strong> (Multiplication is commutative)<strong>.</strong> Let $latex n,m$ be natural numbers. Then $latex n\times m = m\times n$.
+<h2>Hints</h2>
+<ol>
+ 	<li>Modify the proofs of Lemmas 2.2.2, 2.2.3 and Proposition 2.2.4.</li>
+</ol>
+<h2>How to think about the exercise</h2>
+In the solution below, we prove two facts that help us with the actual proof. You might wonder where these two facts came from. And you might answer "well, you can just peek at Lemmas 2.2.2 and 2.2.3". That's quite right, but what if you didn't have access to the textbook? It turns out that you can <em>try</em> to solve the exercise without proving the two facts, and see where you get stuck. Then, you can turn those parts into lemmas. Let's see how this works in practice.
+
+We want to show $latex n\times m = m\times n$. We fix $latex m$ and induct on $latex n$. For the base case, we need $latex 0\times m = m\times 0$. By the definition of multiplication, the left side is zero. What about the right side? Well, it would be nice if we could show that $latex m\times 0 = 0$. So spin this off into a lemma. [Insert proof of the lemma here.]
+
+Now suppose inductively that we have $latex n\times m = m\times n$. We want to show $latex (n{{+}\!{+}})\times m = m\times (n{{+}\!{+}})$. By definition of multiplication and the inductive hypothesis, the left side is $latex (n{{+}\!{+}})\times m = n\times m + m = m\times n + m$. What about the right side? It would be nice if we could show that $latex m\times (n{{+}\!{+}}) = m\times n + m$. So spin this off into a second lemma. [Insert proof of lemma here.] This closes the induction, and completes the proof.
+
+So as you can see, the source of the lemmas isn't mysterious: it's what you naturally get by attempting the proof and getting stuck.
+<h2>Model solution</h2>
+We first show two facts analogous to Lemmas 2.2.2 and 2.2.3:
+<ol>
+ 	<li>For any natural number $latex n$, $latex n\times 0 = 0$: We induct on $latex n$. The base case is $latex 0\times 0 = 0$, which follows from the definition of multiplication. Now suppose inductively that $latex n\times 0 = 0$. We want to show $latex (n{{+}\!{+}})\times 0 = 0$. By definition of multiplication and the inductive hypothesis, $latex (n{{+}\!{+}})\times 0 = (n\times 0) + 0 = 0$. This closes the induction.</li>
+ 	<li>For any natural numbers $latex n$ and $latex m$, $latex n\times (m{{+}\!{+}}) = (n\times m) + n$: We induct on $latex n$ (keeping $latex m$ fixed). For the case $latex n=0$, we have to show $latex 0\times (m{{+}\!{+}}) = (0\times m) + 0$. But $latex 0\times (m{{+}\!{+}}) = 0$ by definition of multiplication, and $latex (0\times m) + 0 = 0+0=0$, so they are equal. Now suppose inductively that $latex n\times (m{{+}\!{+}}) = (n\times m) + n$. We want to show that $latex (n{{+}\!{+}})\times (m{{+}\!{+}}) = ((n{{+}\!{+}})\times m) + (n{{+}\!{+}})$. By definition of multiplication, $latex (n{{+}\!{+}})\times (m{{+}\!{+}})$ is equal to $latex n\times (m{{+}\!{+}}) + (m{{+}\!{+}})$, which is equal to $latex n\times m + n + (m{{+}\!{+}})$ by the inductive hypothesis. Similarly, we have $latex ((n{{+}\!{+}})\times m) + (n{{+}\!{+}}) = (n\times m + m) + (n{{+}\!{+}})$ by the definition of multiplication. Thus both sides are equal to $latex n\times m + m + n + 1$.</li>
+</ol>
+Now we can prove the actual lemma. We fix $latex m$ and induct on $latex n$. For the base case, we need $latex 0\times m = m\times 0$. By the definition of multiplication, the left side is zero, and by fact (1) above the right side is also zero.
+
+Now suppose inductively that we have $latex n\times m = m\times n$. We want to show $latex (n{{+}\!{+}})\times m = m\times (n{{+}\!{+}})$. By definition of multiplication, the left side is $latex (n{{+}\!{+}})\times m = n\times m + m$. By fact (2) above, the right side is $latex m\times (n{{+}\!{+}}) = m\times n + m$. Thus we have to show $latex n\times m + m = m\times n + m$, but this follows from the inductive hypothesis.
