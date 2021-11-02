@@ -1,0 +1,29 @@
+<h2>Exercise statement</h2>
+Prove Proposition 2.3.9.
+
+<strong>Proposition 2.3.9</strong> (Euclidean algorithm)<strong>.</strong> Let $latex n$ be a natural number, and let $latex q$ be a positive number. Then there exist natural numbers $latex m,r$ such that $latex 0 \leq r &lt; q$ and $latex n = mq + r$.
+<h2>Hints</h2>
+<ol>
+ 	<li>Fix $latex q$ and induct on $latex n$.</li>
+</ol>
+<h2>How to think about the exercise</h2>
+Terminological note: Tao calls this result "Euclidean algorithm", but <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidean algorithm</a> is most commonly used for a different algorithm. The common term used for the topic of this exercise seems to be <a href="https://en.wikipedia.org/wiki/Euclidean_division">Euclidean division</a>.
+
+For this exercise, the only slightly tricky part is proving the inductive step. Here, what turns out to work is to split into cases. But which cases? I think the easiest way to see is to look at some examples. Let's take the following, where we fix $latex q=5$ and increment $latex n$ by one each time:
+
+10 divided by 5 = 2 with remainder 0
+11 divided by 5 = 2 with remainder 1
+12 divided by 5 = 2 with remainder 2
+13 divided by 5 = 2 with remainder 3
+14 divided by 5 = 2 with remainder 4
+15 divided by 5 = 3 with remainder 0
+
+I hope you can see the pattern. At each increment of $latex n$, either the remainder goes up by 1 (in which case $latex m$ stays the same) or the remainder resets to 0 (in which case $latex m$ goes up by 1). What distinguishes the two cases? Well, the reset only happens when the remainder on the previous step is one less than the number we are dividing by, i.e. when $latex r+1 = q$. For example, suppose we are at "14 divided by 5 = 2 with remainder 4". Then the remainder, 4, is one less than the number we are dividing by, which is 5.
+<h2>Model solution</h2>
+Let us fix $latex q$ and induct on $latex n$. For the case $latex n = 0$, we must show that there are natural numbers $latex m,r$ such that $latex 0 \leq r &lt; q$ and $latex 0 = mq + r$. We can take $latex m=0$ and $latex r=0$. Indeed, we have $latex 0 \leq 0 &lt; q$ (since $latex q$ is positive) and $latex 0 = 0\times q + 0$.
+
+Now suppose inductively that there are natural numbers $latex m,r$ such that $latex 0 \leq r &lt; q$ and $latex n = mq + r$. We must show that there are natural numbers $latex m', r'$ such that $latex 0 \leq r' &lt; q$ and $latex n+1=m'q + r'$.
+
+We have two cases, $latex r+1 = q$ and $latex r+1 \ne q$. If $latex r+1=q$, we can take $latex m' := m+1$ and $latex r' := 0$. Then $latex 0 \leq r' = 0 &lt; q$ and we have $latex m'q + r'$ equal to $latex (m+1)q + 0$ by definition of $latex m',r'$, which equals $latex mq + q$ by the distributive law, which equals $latex mq + r + 1$ by using $latex q=r+1$, which equals $latex n+1$ by the inductive hypothesis $latex n=mq+r$. Thus $latex m'q + r' = n+1$ as required.
+
+Now suppose $latex r+1\ne q$. In this case, $latex r &lt; q$ from the inductive hypothesis gives $latex r+1 \leq q$, so $latex r+1 &lt; q$. So we can take $latex r' := r+1$ and $latex m' := m$. Now $latex 0 \leq r' &lt; q$ by what we just showed, and $latex m'q + r' = mq + r+1 = n+1$ by definition of $latex m',r'$ and the inductive hypothesis $latex n=mq+r$.
