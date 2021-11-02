@@ -1,0 +1,35 @@
+<h2>Exercise statement</h2>
+Prove Proposition 2.2.12.
+
+<strong>Proposition 2.2.12</strong> (Basic properties of order for natural numbers)<strong>.</strong> Let $latex a,b,c$ be natural numbers. Then
+
+(a) (Order if reflexive) $latex a \geq a$.
+(b) (Order is transitive) If $latex a \geq b$ and $latex b \geq c$, then $latex a\geq c$.
+(c) (Order is anti-symmetric) If $latex a\geq b$ and $latex b\geq a$, then $latex a=b$.
+(d) (Addition preserves order) $latex a \geq b$ if and only if $latex a+c \geq b+c$.
+(e) $latex a&lt;b$ if and only if $latex a{{+}\!{+}} \leq b$.
+(f) $latex a&lt;b$ if and only if $latex b=a+d$ for some <em>positive</em> number $latex d$.
+<h2>Hints</h2>
+You will need many of the preceding propositions, corollaries, and lemmas.
+<h2>How to think about the exercise</h2>
+Each part of the exercise is pretty straightforward. It is tiring to write down everything, but at this stage it is good for your soul.
+<h2>Model solution</h2>
+(a) To show that $latex a\leq a$ we must show that $latex a = a + m$ for some natural number $latex m$. Pick $latex m:=0$. Then by Lemma 2.2.2 we see that $latex a+m = a+0 = a$ as required.
+
+(b) Suppose $latex a \geq b$ and $latex b \geq c$, thus there are natural numbers $latex n,m$ such that $latex a = b+n$ and $latex b=c+m$. We want to show that $latex a = c + r$ for some natural number $latex r$. Pick $latex r := m+n$. Then $latex c+r = c + (m+n) = (c+m) + n = b+n =a$ by the associativity of addition (Proposition 2.2.5).
+
+(c) Suppose $latex a\geq b$ and $latex b\geq a$, thus there are natural numbers $latex n,m$ such that $latex a = b+n$ and $latex b = a+m$. Thus we see that $latex a = (a+m)+n = a + (m+n)$ by associativity of addition (Proposition 2.2.5). By the cancellation law (Proposition 2.2.6) we see that $latex 0 = m+n$ and so by Corollary 2.2.9 we conclude that $latex m=0$ and $latex n=0$. Thus $latex a = b+n = b + 0 = b$ by Lemma 2.2.2.
+
+(d) Suppose $latex a \geq b$, so that we have a natural number $latex n$ such that $latex a = b+n$. By adding $latex c$ to both sides, we obtain $latex a+c = (b+n)+c$. By associativity and commutativity of addition, we have $latex (b+n)+c = b + (n+c) = b+(c+n) = (b+c)+n$. Thus $latex a+c = (b+c) + n$, which means $latex a+c \geq b+c$.
+
+Now suppose $latex a+c \geq b+c$, thus $latex a+c = (b+c) + n$ for some natural number $latex n$. We have $latex (b+c) + n = b+(c+n) = b+(n+c) = (b+n)+c$ by associativity and commutativity of addition. Thus $latex a+c = (b+n)+c$, so by cancellation we have $latex a = b+n$, which means $latex a \geq b$.
+
+(e) Suppose $latex a&lt;b$. Thus $latex a \leq b$, which means $latex b = a+n$ for some natural number $latex n$, and we also know that $latex a\ne b$. If $latex n=0$, then $latex b=a+0=a$ which would contradict the fact that $latex a\ne b$. Thus $latex n$ is positive. By Lemma 2.2.10 this means that there is a natural number $latex m$ such that $latex m{{+}\!{+}} = n$. But now we have
+<p style="text-align: center;">$latex \begin{aligned}b &amp;= a + (m{{+}\!{+}}) \\ &amp;= (a+m){{+}\!{+}} \\ &amp;= (m+a){{+}\!{+}} \\ &amp;= m+(a{{+}\!{+}}) \\&amp; = (a{{+}\!{+}}) + m\end{aligned}$</p>
+by repeated applications of Lemma 2.2.3 and Proposition 2.2.4. Thus we see that $latex b \geq a{{+}\!{+}}$.
+
+Now suppose $latex a{{+}\!{+}} \leq b$. Thus $latex b = (a{{+}\!{+}}) + n$ for some natural number $latex n$. We have $latex (a{{+}\!{+}}) + n = (a+n){{+}\!{+}} = a+ (n{{+}\!{+}})$ by Definition 2.2.1 and Lemma 2.2.3. Thus $latex b = a+ (n{{+}\!{+}})$, which means that $latex b \geq a$. If $latex b = a$, then by cancellation we would have $latex 0 = n{{+}\!{+}}$, which contradicts Axiom 2.3. Thus $latex b \ne a$, which combined with $latex b\geq a$ means that $latex b &gt; a$ as required.
+
+(f) Suppose $latex a&lt;b$. In the first part of the proof of part (e), we already showed that $latex b = a+n$ for positive $latex n$.
+
+Now suppose $latex b=a+d$ for some positive number $latex d$. Since $latex d$ is a natural number, we have $latex b \geq a$. It remains to show that $latex a\ne b$. Suppose for contradiction that $latex a=b$. Then by cancellation we have $latex 0=d$, which means $latex d$ is not positive, a contradiction. Thus $latex a\ne b$ as required.
